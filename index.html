@@ -1,0 +1,1553 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kościół pw. Wniebowzięcia NMP w Żukowie — Prezentacja</title>
+  
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Phosphor Icons CDN (Script + Stylesheet) -->
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.2/src/regular/style.css">
+
+  <style>
+    /* CSS Variables & Design System */
+    :root {
+      --bg-canvas: #f8fafc;
+      --bg-card: #ffffff;
+      --bg-card-subtle: #f1f5f9;
+      --border-color: #e2e8f0;
+      --border-accent: #bfdbfe;
+      
+      --text-primary: #0f172a;
+      --text-secondary: #334155;
+      --text-muted: #64748b;
+      
+      /* Kashubian Cobalt Blue */
+      --cobalt: #2563eb;
+      --cobalt-dark: #1d4ed8;
+      --cobalt-light: #eff6ff;
+      --cobalt-border: #bfdbfe;
+      --cobalt-glow: rgba(37, 99, 235, 0.12);
+
+      /* Kashubian 7 Traditional Colors */
+      --kaszub-navy: #1e3a8a;
+      --kaszub-blue: #2563eb;
+      --kaszub-sky: #0284c7;
+      --kaszub-red: #dc2626;
+      --kaszub-green: #16a34a;
+      --kaszub-yellow: #ca8a04;
+      --kaszub-black: #0f172a;
+      
+      --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.05);
+      --shadow-md: 0 4px 6px -1px rgba(15, 23, 42, 0.06), 0 2px 4px -2px rgba(15, 23, 42, 0.04);
+      --shadow-deck: 0 20px 40px -15px rgba(15, 23, 42, 0.12), 0 0 1px 1px rgba(15, 23, 42, 0.05);
+      --shadow-floating: 0 16px 36px -6px rgba(15, 23, 42, 0.12), 0 4px 8px -2px rgba(15, 23, 42, 0.04);
+      
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+      --radius-full: 9999px;
+      
+      --ease-snappy: cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* Reset & Base Setup */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+      background-color: var(--bg-canvas);
+      background-image: 
+        radial-gradient(circle at 12% 18%, rgba(37, 99, 235, 0.045) 0%, transparent 40%),
+        radial-gradient(circle at 88% 82%, rgba(37, 99, 235, 0.035) 0%, transparent 45%);
+      color: var(--text-primary);
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      display: flex;
+      flex-direction: column;
+      user-select: none;
+    }
+
+    /* Top Slim Animated Progress Bar */
+    .top-progress-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: rgba(226, 232, 240, 0.7);
+      z-index: 1000;
+    }
+
+    .top-progress-bar {
+      height: 100%;
+      width: 20%;
+      background: var(--cobalt);
+      transition: width 0.4s var(--ease-snappy);
+    }
+
+    /* Header Navigation & Deck Metadata */
+    header.deck-header {
+      width: 100%;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 18px 32px 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 10;
+      flex-shrink: 0;
+    }
+
+    .brand-block {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: var(--radius-sm);
+      background: var(--cobalt-light);
+      border: 1px solid var(--cobalt-border);
+      color: var(--cobalt);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.15rem;
+    }
+
+    .brand-text h2 {
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text-primary);
+      line-height: 1.2;
+    }
+
+    .brand-text p {
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--text-muted);
+    }
+
+    .header-pills {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      border-radius: var(--radius-full);
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .status-badge i {
+      color: var(--cobalt);
+      font-size: 0.9rem;
+    }
+
+    /* Presentation Viewport */
+    main.deck-viewport {
+      flex: 1;
+      width: 100%;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 10px 32px 96px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .slides-wrapper {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      max-height: 700px;
+    }
+
+    /* Slide Card Architecture */
+    .slide {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 32px;
+      align-items: stretch;
+      opacity: 0;
+      visibility: hidden;
+      transform: translate3d(40px, 0, 0);
+      transition: opacity 0.45s var(--ease-snappy), transform 0.45s var(--ease-snappy), visibility 0.45s;
+      pointer-events: none;
+    }
+
+    .slide.active {
+      opacity: 1;
+      visibility: visible;
+      transform: translate3d(0, 0, 0);
+      pointer-events: auto;
+      z-index: 2;
+    }
+
+    .slide.prev-slide {
+      transform: translate3d(-40px, 0, 0);
+    }
+
+    /* Left Column: Modern White Card with Punchy Content */
+    .slide-content-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 40px;
+      box-shadow: var(--shadow-deck);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow-y: auto;
+    }
+
+    .content-top {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .kicker-pill {
+      align-self: flex-start;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 12px;
+      border-radius: var(--radius-full);
+      background: var(--cobalt-light);
+      border: 1px solid var(--cobalt-border);
+      color: var(--cobalt);
+      font-size: 0.725rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .slide-title {
+      font-size: 2.2rem;
+      font-weight: 800;
+      line-height: 1.18;
+      color: var(--text-primary);
+      letter-spacing: -0.025em;
+    }
+
+    .slide-subtitle {
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      line-height: 1.45;
+    }
+
+    /* Key Points: Scannable Bite-Sized Cards */
+    .points-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin: 24px 0;
+    }
+
+    .point-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 14px 18px;
+      background: var(--bg-canvas);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      transition: border-color 0.2s ease, transform 0.2s ease, background 0.2s ease;
+    }
+
+    .point-item:hover {
+      border-color: var(--cobalt-border);
+      background: #ffffff;
+      transform: translateY(-1px);
+    }
+
+    .point-icon-box {
+      width: 38px;
+      height: 38px;
+      flex-shrink: 0;
+      border-radius: var(--radius-sm);
+      background: var(--cobalt-light);
+      color: var(--cobalt);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.15rem;
+      margin-top: 2px;
+    }
+
+    .point-text {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .point-label {
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--cobalt);
+    }
+
+    .point-body {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      line-height: 1.45;
+    }
+
+    .point-body strong {
+      color: var(--text-primary);
+      font-weight: 700;
+    }
+
+    /* Highlight Banner Pill */
+    .content-footer {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .highlight-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 18px;
+      border-radius: var(--radius-md);
+      background: #f8fafc;
+      border: 1px dashed var(--cobalt-border);
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      width: 100%;
+    }
+
+    .highlight-pill i {
+      color: var(--cobalt);
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+
+    .highlight-pill strong {
+      color: var(--cobalt-dark);
+    }
+
+    /* Kashubian 7-Color Palette Bar (Slide 4) */
+    .kashub-palette-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .kashub-palette-label {
+      font-size: 0.725rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text-muted);
+    }
+
+    .kashub-palette-bar {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 6px;
+    }
+
+    .color-chip {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      padding: 6px 4px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+    }
+
+    .color-dot {
+      width: 16px;
+      height: 16px;
+      border-radius: var(--radius-full);
+      box-shadow: 0 1px 2px rgba(0,0,0,0.15);
+    }
+
+    .color-name {
+      font-size: 0.65rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-align: center;
+    }
+
+    /* Right Column: Architectural Image Card */
+    .slide-media-card {
+      position: relative;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-deck);
+      border: 1px solid var(--border-color);
+      background: #e2e8f0;
+      display: flex;
+    }
+
+    .slide-media-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.7s var(--ease-snappy);
+    }
+
+    .slide.active .slide-media-card img {
+      transform: scale(1.02);
+    }
+
+    /* Floating Image Badges & Overlay */
+    .media-top-badge {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background: rgba(15, 23, 42, 0.8);
+      color: #ffffff;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: var(--radius-full);
+      padding: 6px 14px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .media-bottom-card {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      right: 20px;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      border-radius: var(--radius-md);
+      padding: 12px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: var(--shadow-md);
+    }
+
+    .media-desc {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .media-desc-title {
+      font-size: 0.825rem;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    .media-desc-sub {
+      font-size: 0.725rem;
+      font-weight: 500;
+      color: var(--text-muted);
+    }
+
+    .media-tag-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: var(--radius-full);
+      background: var(--cobalt-light);
+      color: var(--cobalt);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+
+    /* Floating Modern Control Bar */
+    nav.bottom-deck-controls {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(226, 232, 240, 0.9);
+      border-radius: var(--radius-full);
+      padding: 8px 16px;
+      box-shadow: var(--shadow-floating);
+      z-index: 1000;
+    }
+
+    .control-btn {
+      width: 38px;
+      height: 38px;
+      border-radius: var(--radius-full);
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      color: var(--text-secondary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      outline: none;
+    }
+
+    .control-btn:hover:not(:disabled) {
+      background: var(--cobalt-light);
+      border-color: var(--cobalt-border);
+      color: var(--cobalt);
+      transform: scale(1.05);
+    }
+
+    .control-btn:active:not(:disabled) {
+      transform: scale(0.96);
+    }
+
+    .control-btn:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+
+    .control-divider {
+      width: 1px;
+      height: 22px;
+      background: var(--border-color);
+    }
+
+    /* Clickable Pill-Shaped Dot Indicators */
+    .dots-nav {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 0 4px;
+    }
+
+    .dot-pill {
+      width: 8px;
+      height: 8px;
+      border-radius: var(--radius-full);
+      background: var(--border-color);
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s var(--ease-snappy);
+      padding: 0;
+    }
+
+    .dot-pill:hover {
+      background: #cbd5e1;
+    }
+
+    .dot-pill.active {
+      width: 28px;
+      background: var(--cobalt);
+    }
+
+    /* Slide Counter */
+    .slide-counter {
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      color: var(--text-primary);
+      display: flex;
+      align-items: center;
+      gap: 3px;
+      min-width: 58px;
+      justify-content: center;
+    }
+
+    .counter-curr {
+      color: var(--cobalt);
+    }
+
+    .counter-sep {
+      color: var(--text-muted);
+      font-weight: 400;
+    }
+
+    .counter-tot {
+      color: var(--text-muted);
+    }
+
+    /* Quick Keyboard Help Modal / Overlay */
+    .keyboard-hint-pill {
+      font-size: 0.725rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      padding: 0 6px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .kbd-key {
+      padding: 2px 6px;
+      border-radius: 4px;
+      background: var(--bg-canvas);
+      border: 1px solid var(--border-color);
+      font-family: inherit;
+      font-size: 0.7rem;
+      color: var(--text-secondary);
+      box-shadow: 0 1px 1px rgba(0,0,0,0.05);
+    }
+
+    /* Modal Help Dialog */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.4);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2000;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.25s ease;
+    }
+
+    .modal-backdrop.open {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .modal-box {
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 30px;
+      max-width: 440px;
+      width: 90%;
+      box-shadow: var(--shadow-deck);
+      transform: scale(0.95);
+      transition: transform 0.25s var(--ease-snappy);
+    }
+
+    .modal-backdrop.open .modal-box {
+      transform: scale(1);
+    }
+
+    .modal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+
+    .modal-header h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .modal-header h3 i {
+      color: var(--cobalt);
+    }
+
+    .close-btn {
+      background: transparent;
+      border: none;
+      font-size: 1.25rem;
+      color: var(--text-muted);
+      cursor: pointer;
+      border-radius: 6px;
+      padding: 4px;
+    }
+
+    .close-btn:hover {
+      color: var(--text-primary);
+      background: var(--bg-canvas);
+    }
+
+    .shortcuts-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .shortcut-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+    }
+
+    /* Staggered Animations on Slide Activate */
+    .slide.active .kicker-pill {
+      animation: fadeInUp 0.4s var(--ease-snappy) forwards;
+    }
+
+    .slide.active .slide-title {
+      animation: fadeInUp 0.4s var(--ease-snappy) 0.08s forwards;
+    }
+
+    .slide.active .slide-subtitle {
+      animation: fadeInUp 0.4s var(--ease-snappy) 0.14s forwards;
+    }
+
+    .slide.active .point-item:nth-child(1) {
+      animation: fadeInUp 0.4s var(--ease-snappy) 0.18s forwards;
+    }
+
+    .slide.active .point-item:nth-child(2) {
+      animation: fadeInUp 0.4s var(--ease-snappy) 0.24s forwards;
+    }
+
+    .slide.active .point-item:nth-child(3) {
+      animation: fadeInUp 0.4s var(--ease-snappy) 0.3s forwards;
+    }
+
+    .slide.active .content-footer {
+      animation: fadeInUp 0.4s var(--ease-snappy) 0.36s forwards;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(14px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Responsive Mobile & Tablet Layout */
+    @media (max-width: 980px) {
+      body {
+        overflow-y: auto;
+        height: auto;
+        min-height: 100vh;
+      }
+
+      header.deck-header {
+        padding: 14px 18px 8px;
+      }
+
+      main.deck-viewport {
+        padding: 8px 16px 100px;
+        height: auto;
+        min-height: calc(100vh - 120px);
+        overflow: visible;
+      }
+
+      .slides-wrapper {
+        height: auto;
+        max-height: none;
+        min-height: auto;
+      }
+
+      .slide {
+        position: relative;
+        inset: auto;
+        display: none;
+        grid-template-columns: 1fr;
+        gap: 20px;
+        opacity: 0;
+        transform: none;
+      }
+
+      .slide.active {
+        display: flex;
+        flex-direction: column;
+        opacity: 1;
+      }
+
+      .slide-content-card {
+        padding: 24px;
+        overflow-y: visible;
+      }
+
+      .slide-title {
+        font-size: 1.6rem;
+      }
+
+      .slide-subtitle {
+        font-size: 0.95rem;
+      }
+
+      .slide-media-card {
+        height: 260px;
+        min-height: 260px;
+        order: -1;
+      }
+
+      .points-stack {
+        margin: 16px 0;
+        gap: 10px;
+      }
+
+      .point-item {
+        padding: 12px 14px;
+      }
+
+      nav.bottom-deck-controls {
+        bottom: 12px;
+        padding: 6px 12px;
+        width: calc(100% - 32px);
+        max-width: 480px;
+        justify-content: space-between;
+      }
+
+      .keyboard-hint-pill {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Slim Animated Progress Bar -->
+  <div class="top-progress-container" aria-hidden="true">
+    <div class="top-progress-bar" id="progressBar"></div>
+  </div>
+
+  <!-- Deck Header / Contextual Metadata -->
+  <header class="deck-header">
+    <div class="brand-block">
+      <div class="brand-icon">
+        <i class="ph ph-church"></i>
+      </div>
+      <div class="brand-text">
+        <h2>Kościół Wniebowzięcia NMP • Żukowo</h2>
+        <p>Monografia Zabytku Klasy Międzynarodowej</p>
+      </div>
+    </div>
+    
+    <div class="header-pills">
+      <div class="status-badge" id="categoryBadge">
+        <i class="ph ph-compass"></i>
+        <span>Slajd 01 z 04</span>
+      </div>
+      <div class="status-badge">
+        <i class="ph ph-map-pin"></i>
+        <span>Żukowo, Kaszuby</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Presentation Main Viewport -->
+  <main class="deck-viewport">
+    <div class="slides-wrapper" id="slidesWrapper">
+
+            <!-- ================= SLAJD 1 ================= -->
+      <section class="slide active" id="slide-0" data-category="Położenie i Lokalizacja">
+        <!-- Left: Punchy Copy Card -->
+        <div class="slide-content-card">
+          <div class="content-top">
+            <div class="kicker-pill">
+              <i class="ph ph-map-pin"></i>
+              Położenie i Lokalizacja
+            </div>
+            <h1 class="slide-title">Kościół Wniebowzięcia NMP w Żukowie</h1>
+            <p class="slide-subtitle">Kościół pw. Wniebowzięcia Najświętszej Maryi Panny</p>
+          </div>
+
+          <!-- Bite-sized Points -->
+          <div class="points-stack">
+            <div class="point-item">
+              <div class="point-icon-box">
+                <i class="ph ph-navigation-arrow"></i>
+              </div>
+              <div class="point-text">
+                <span class="point-label">Miejscowość</span>
+                <p class="point-body">
+                  <strong>Żukowo</strong> – miasto położone na Pomorzu Gdańskim, w historycznym regionie Kaszub.
+                </p>
+              </div>
+            </div>
+
+            <div class="point-item">
+              <div class="point-icon-box">
+                <i class="ph ph-buildings"></i>
+              </div>
+              <div class="point-text">
+                <span class="point-label">Gmina</span>
+                <p class="point-body">
+                  <strong>Gmina Żukowo</strong> – gmina miejsko-wiejska w województwie pomorskim.
+                </p>
+              </div>
+            </div>
+
+            <div class="point-item">
+              <div class="point-icon-box">
+                <i class="ph ph-map-trifold"></i>
+              </div>
+              <div class="point-text">
+                <span class="point-label">Powiat i Województwo</span>
+                <p class="point-body">
+                  <strong>Powiat kartuski</strong>, województwo pomorskie.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Highlight Pill -->
+          <div class="content-footer">
+            <div class="highlight-pill">
+              <i class="ph ph-compass"></i>
+              <span><strong>Lokalizacja:</strong> Żukowo, gmina Żukowo, powiat kartuski, woj. pomorskie.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Map Card -->
+        <div class="slide-media-card" style="background: #ffffff;">
+          <img 
+            src="assets/slide1_map.jpg" 
+            alt="Mapa lokalizacyjna Żukowa z zaznaczonym kościołem" 
+            loading="eager"
+            style="object-fit: contain; padding: 18px;"
+          />
+          <div class="media-top-badge">
+            <i class="ph ph-map-pin"></i>
+            Mapa z Zaznaczonym Kościołem
+          </div>
+          <div class="media-bottom-card">
+            <div class="media-desc">
+              <span class="media-desc-title">Lokalizacja kościoła w Żukowie</span>
+              <span class="media-desc-sub">Oznaczone położenie świątyni na mapie</span>
+            </div>
+            <div class="media-tag-icon">
+              <i class="ph ph-crosshair"></i>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= SLAJD 2 ================= -->
+      <section class="slide" id="slide-1" data-category="Historia">
+        <div class="slide-content-card">
+          <div class="content-top">
+            <div class="kicker-pill">
+              <i class="ph ph-clock-counter-clockwise"></i>
+              Dzieje Świątyni i Klasztoru
+            </div>
+            <h1 class="slide-title">Historia</h1>
+            <p class="slide-subtitle">Kronika kościoła norbertanek od XIV wieku po kasatę pruską</p>
+          </div>
+
+          <div class="points-stack">
+            <div class="point-item">
+              <div class="point-icon-box">
+                <i class="ph ph-crown"></i>
+              </div>
+              <div class="point-text">
+                <span class="point-label">Początki i Przeniesienie (XIV w.)</span>
+                <p class="point-body">
+                  <strong>Kościół zbudowany w XIV wieku przez siostry norbertanki</strong>. Mury pamiętają <strong>Książąt Pomorskich z XIII wieku</strong>. Zbudowano go wraz z klasztorem przeniesionym z pobliskiej Stolpy (dawna część Żukowa) po najeździe z 1226 r.
+                </p>
+              </div>
+            </div>
+
+            <div class="point-item">
+              <div class="point-icon-box">
+                <i class="ph ph-bank"></i>
+              </div>
+              <div class="point-text">
+                <span class="point-label">Kasata Pruska (1834) i Parafia (1836)</span>
+                <p class="point-body">
+                  Kościół był w posiadaniu klasztoru aż do <strong>1834 r., kiedy został skasowany przez rząd pruski</strong>. W <strong>1836 r. przejęła go parafia żukowska</strong>. Budynki klasztoru zostały sprzedane, a w dawnej stajni urządzono plebanię.
+                </p>
+              </div>
+            </div>
+
+            <div class="point-item">
+              <div class="point-icon-box">
+                <i class="ph ph-shield-check"></i>
+              </div>
+              <div class="point-text">
+                <span class="point-label">Ocalałe Obiekty i Cmentarz</span>
+                <p class="point-body">
+                  Z klasztoru ocalał <strong>kościół klasztorny, stajnia i wozownia</strong>, budynek z filarem na środku i sklepieniem, mur z wnękami z przedstawieniami zakonnic oraz figura św. Norberta na dziedzińcu. <strong>Cmentarz przykościelny pochodzi z XVII wieku</strong>.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="content-footer">
+            <div class="highlight-pill">
+              <i class="ph ph-scroll"></i>
+              <span><strong>Źródło:</strong> Wikipedia — historia klasztoru norbertanek i parafii w Żukowie.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="slide-media-card">
+          <img 
+            src="assets/slide2_klasztor.jpg" 
+            alt="Zespół poklasztorny norbertanek w Żukowie" 
+            loading="lazy"
+          />
+          <div class="media-top-badge">
+            <i class="ph ph-hourglass-high"></i>
+            Dzieje XIV — XIX w.
+          </div>
+          <div class="media-bottom-card">
+            <div class="media-desc">
+              <span class="media-desc-title">Zespół poklasztorny w Żukowie</span>
+              <span class="media-desc-sub">Kompleks dawnego klasztoru norbertanek nad rzeką Radunią</span>
+            </div>
+            <div class="media-tag-icon">
+              <i class="ph ph-monument"></i>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= SLAJD 3 ================= -->
+      <section class="slide" id="slide-2" data-category="Architektura">
+        <div class="slide-content-card">
+          <div class="content-top">
+            <div class="kicker-pill">
+              <i class="ph ph-columns"></i>
+              Styl Gotycki i Konstrukcja
+            </div>
+            <h1 class="slide-title">Architektura</h1>
+            <p class="slide-subtitle">Badania archeologiczne, faza gotycka i sklepienia świątyni</p>
+          </div>
+
+          <div class="points-stack">
+            <div class="point-item">
+              <div class="point-icon-box">
+                <i class="ph ph-magnifying-glass"></i>
+              </div>
+              <div class="point-text">
+                <span class="point-label">Fazy Budowy (1375 i 1433 r.)</span>
+                <p class="point-body">
+                  <strong>Badania archeologiczne z 1999 r.</strong> wykazały <strong>dwie fazy budowy kościoła w średniowieczu: z 1375 r. i 1433 r.</strong>
+                </p>
+              </div>
+            </div>
+
+            <div class="point-item">
+              <div class="point-icon-box">
+                <i class="ph ph-wall"></i>
+              </div>
+              <div class="point-text">
+                <span class="point-label">Materiał i Wymiary</span>
+                <p class="point-body">
+                  Kościół wzniesiony został <strong>z cegły, w stylu gotyckim</strong>, o wymiarach: <strong>długość 38 metrów, szerokość 9 metrów i wysokość 14 metrów</strong>.
+                </p>
+              </div>
+            </div>
+
+            <div class="point-item">
+              <div class="point-icon-box">
+                <i class="ph ph-intersect"></i>
+              </div>
+              <div class="point-text">
+                <span class="point-label">Sklepienia i Nowożytne Elewacje</span>
+                <p class="point-body">
+                  We wnętrzu zastosowano <strong>dwa rodzaje sklepień: krzyżowe i kolebkowe</strong>. Elewacje zewnętrzne zakrystii i klatki schodowej na chór <strong>pochodzą z początku XVIII w.</strong>
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="content-footer">
+            <div class="highlight-pill">
+              <i class="ph ph-buildings"></i>
+              <span><strong>Parametry:</strong> Długość 38 m, szerokość 9 m, wysokość 14 m • Sklepienia krzyżowe i kolebkowe.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="slide-media-card">
+          <img 
+            src="assets/slide3_kosciol.jpg" 
+            alt="Gotycka ceglana bryła kościoła w Żukowie" 
+            loading="lazy"
+          />
+          <div class="media-top-badge">
+            <i class="ph ph-buildings"></i>
+            Gotyk Ceglany 1375 / 1433
+          </div>
+          <div class="media-bottom-card">
+            <div class="media-desc">
+              <span class="media-desc-title">Gotycka bryła kościoła</span>
+              <span class="media-desc-sub">Średniowieczny kościół z cegły o długości 38 m i wysokości 14 m</span>
+            </div>
+            <div class="media-tag-icon">
+              <i class="ph ph-camera"></i>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= SLAJD 4 ================= -->
+      <section class="slide" id="slide-3" data-category="Wyposażenie">
+        <div class="slide-content-card">
+          <div class="content-top">
+            <div class="kicker-pill">
+              <i class="ph ph-sparkle"></i>
+              Dzieła Sztuki i Elementy Sakralne
+            </div>
+            <h1 class="slide-title">Wyposażenie</h1>
+            <p class="slide-subtitle">Zabytkowe ołtarze, tryptyki, dzwony i organy</p>
+          </div>
+
+          <div class="points-stack">
+            <div class="point-item">
+              <div class="point-icon-box">
+                <i class="ph ph-trophy"></i>
+              </div>
+              <div class="point-text">
+                <span class="point-label">Zabytkowe Ołtarze i Tryptyki</span>
+                <p class="point-body">
+                  <strong>XVII-wieczny ołtarz główny</strong> z obrazami <strong>Hermana Hana</strong> (<em>Madonna wśród Aniołów</em> i <em>Trójca Przenajświętsza</em>), relikwiarzem i figurami świętych. <strong>XVI-wieczny ołtarz Świętej Rodziny</strong> z figurą Matki Boskiej Wadzińskiej, <strong>ołtarz św. Norberta (XVIII w.)</strong>, <strong>tryptyk antwerpski</strong> z życiem Jezusa (XVI w.) oraz <strong>tryptyk Mestwina</strong> (poświęcony Mestwinowi I i Zwinisławie).
+                </p>
+              </div>
+            </div>
+
+            <div class="point-item">
+              <div class="point-icon-box">
+                <i class="ph ph-paint-brush"></i>
+              </div>
+              <div class="point-text">
+                <span class="point-label">Empora, Ambona i Malarstwo</span>
+                <p class="point-body">
+                  <strong>Empora chórowa połączona z amboną</strong> (ukończona 23 lipca 1766 r.), <strong>tęcza z XVII w.</strong> oraz <strong>krzyż nad wejściem do zakrystii z ok. 1360 r.</strong> Obrazy z XVIII w., w tym <em>Norbertanki Zamordowane przez Prusów w 1226 r.</em> i <em>Zdjęcie z krzyża</em>.
+                </p>
+              </div>
+            </div>
+
+            <div class="point-item">
+              <div class="point-icon-box">
+                <i class="ph ph-bell"></i>
+              </div>
+              <div class="point-text">
+                <span class="point-label">Dzwony i Organy</span>
+                <p class="point-body">
+                  <strong>Sygnaturka z 1737 r.</strong> i dwa dzwony z lat 50. XX w. (,,Maria" i ,,Norbert"). <strong>25-głosowe organy z lat 50. XX w.</strong> na dawnym chórze panien (ciemnozielony prospekt, miech, traktura pneumatyczna, dmuchawa elektryczna – wymagające remontu).
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="content-footer">
+            <div class="highlight-pill">
+              <i class="ph ph-star"></i>
+              <span><strong>Zabytki wnętrza:</strong> Ołtarze Hermana Hana, rzeźby, empora z 1766 r., krzyż z 1360 r., dzwony i organy.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="slide-media-card">
+          <img 
+            src="assets/slide4_oltarz.jpg" 
+            alt="XVII-wieczny ołtarz główny kościoła w Żukowie z obrazami Hermana Hana" 
+            loading="lazy"
+          />
+          <div class="media-top-badge">
+            <i class="ph ph-feather"></i>
+            Ołtarz Główny • Herman Han
+          </div>
+          <div class="media-bottom-card">
+            <div class="media-desc">
+              <span class="media-desc-title">XVII-wieczny ołtarz główny</span>
+              <span class="media-desc-sub">Dzieła Hermana Hana: Madonna wśród Aniołów i Trójca Przenajświętsza</span>
+            </div>
+            <div class="media-tag-icon">
+              <i class="ph ph-star"></i>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Modern Floating Bottom Control Bar -->
+  <nav class="bottom-deck-controls" aria-label="Nawigacja prezentacji">
+    <!-- Prev Button -->
+    <button class="control-btn" id="prevBtn" aria-label="Poprzedni slajd (Strzałka w lewo)">
+      <i class="ph ph-arrow-left"></i>
+    </button>
+
+    <!-- Pill-shaped Dot Indicators -->
+    <div class="dots-nav" id="dotsNav" role="tablist" aria-label="Wskaźniki slajdów">
+      <button class="dot-pill active" data-index="0" role="tab" aria-selected="true" aria-label="Slajd 1"></button>
+      <button class="dot-pill" data-index="1" role="tab" aria-selected="false" aria-label="Slajd 2"></button>
+      <button class="dot-pill" data-index="2" role="tab" aria-selected="false" aria-label="Slajd 3"></button>
+      <button class="dot-pill" data-index="3" role="tab" aria-selected="false" aria-label="Slajd 4"></button>
+    </div>
+
+    <!-- Slide Counter -->
+    <div class="slide-counter" aria-live="polite">
+      <span class="counter-curr" id="currNum">01</span>
+      <span class="counter-sep">/</span>
+      <span class="counter-tot">04</span>
+    </div>
+
+    <!-- Next Button -->
+    <button class="control-btn" id="nextBtn" aria-label="Następny slajd (Strzałka w prawo / Spacja)">
+      <i class="ph ph-arrow-right"></i>
+    </button>
+
+    <div class="control-divider"></div>
+
+    <!-- Autoplay Toggle Button -->
+    <button class="control-btn" id="playBtn" aria-label="Automatyczne odtwarzanie (Klawisz P)" title="Autoodtwarzanie (P)">
+      <i class="ph ph-play" id="playIcon"></i>
+    </button>
+
+    <!-- Fullscreen Toggle Button -->
+    <button class="control-btn" id="fsBtn" aria-label="Pełny ekran (Klawisz F)" title="Pełny ekran (F)">
+      <i class="ph ph-corners-out" id="fsIcon"></i>
+    </button>
+
+    <!-- Keyboard Help Button -->
+    <button class="control-btn" id="helpBtn" aria-label="Skróty klawiszowe (Klawisz ?)" title="Skróty klawiszowe">
+      <i class="ph ph-keyboard"></i>
+    </button>
+
+    <!-- Subtle keyboard hint label -->
+    <div class="keyboard-hint-pill">
+      <span class="kbd-key"><i class="ph ph-arrow-left"></i></span>
+      <span class="kbd-key"><i class="ph ph-arrow-right"></i></span>
+    </div>
+  </nav>
+
+  <!-- Keyboard Shortcuts Help Modal -->
+  <div class="modal-backdrop" id="helpModal" role="dialog" aria-modal="true" aria-labelledby="helpTitle">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h3 id="helpTitle">
+          <i class="ph ph-keyboard"></i>
+          Nawigacja i Skróty
+        </h3>
+        <button class="close-btn" id="closeHelpBtn" aria-label="Zamknij pomoc">
+          <i class="ph ph-x"></i>
+        </button>
+      </div>
+      <div class="shortcuts-list">
+        <div class="shortcut-row">
+          <span>Następny slajd</span>
+          <div>
+            <span class="kbd-key">Right</span>
+            <span class="kbd-key">Space</span>
+          </div>
+        </div>
+        <div class="shortcut-row">
+          <span>Poprzedni slajd</span>
+          <div>
+            <span class="kbd-key">Left</span>
+          </div>
+        </div>
+        <div class="shortcut-row">
+          <span>Przejdź do slajdu</span>
+          <div>
+            <span class="kbd-key">1</span>
+            <span>-</span>
+            <span class="kbd-key">4</span>
+          </div>
+        </div>
+        <div class="shortcut-row">
+          <span>Pełny ekran</span>
+          <div>
+            <span class="kbd-key">F</span>
+          </div>
+        </div>
+        <div class="shortcut-row">
+          <span>Autoodtwarzanie (Play/Pause)</span>
+          <div>
+            <span class="kbd-key">P</span>
+          </div>
+        </div>
+        <div class="shortcut-row">
+          <span>Pomoc / Okno skrótów</span>
+          <div>
+            <span class="kbd-key">?</span>
+            <span class="kbd-key">H</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Deck Presentation Logic Engine -->
+  <script>
+    (function () {
+      'use strict';
+
+      const slides = Array.from(document.querySelectorAll('.slide'));
+      const dots = Array.from(document.querySelectorAll('.dot-pill'));
+      const prevBtn = document.getElementById('prevBtn');
+      const nextBtn = document.getElementById('nextBtn');
+      const currNumEl = document.getElementById('currNum');
+      const progressBar = document.getElementById('progressBar');
+      const categoryBadge = document.getElementById('categoryBadge');
+      const playBtn = document.getElementById('playBtn');
+      const playIcon = document.getElementById('playIcon');
+      const fsBtn = document.getElementById('fsBtn');
+      const fsIcon = document.getElementById('fsIcon');
+      const helpBtn = document.getElementById('helpBtn');
+      const helpModal = document.getElementById('helpModal');
+      const closeHelpBtn = document.getElementById('closeHelpBtn');
+
+      const totalSlides = slides.length;
+      let currentIndex = 0;
+      let autoplayTimer = null;
+      const autoplayInterval = 6000; // 6 seconds per slide
+
+      function updateDeck(newIndex) {
+        if (newIndex < 0) newIndex = 0;
+        if (newIndex >= totalSlides) newIndex = totalSlides - 1;
+
+        const prevIndex = currentIndex;
+        currentIndex = newIndex;
+
+        // Transition classes
+        slides.forEach((slide, idx) => {
+          slide.classList.remove('active', 'prev-slide');
+          if (idx === currentIndex) {
+            slide.classList.add('active');
+          } else if (idx < currentIndex) {
+            slide.classList.add('prev-slide');
+          }
+        });
+
+        // Update Dots
+        dots.forEach((dot, idx) => {
+          const isActive = idx === currentIndex;
+          dot.classList.toggle('active', isActive);
+          dot.setAttribute('aria-selected', isActive ? 'true' : 'false');
+        });
+
+        // Update Counter
+        currNumEl.textContent = String(currentIndex + 1).padStart(2, '0');
+
+        // Update Slim Top Progress Bar
+        const progressPct = ((currentIndex + 1) / totalSlides) * 100;
+        progressBar.style.width = progressPct + '%';
+
+        // Update Header Category Badge
+        const activeCategory = slides[currentIndex].dataset.category || 'Monografia';
+        categoryBadge.innerHTML = `<i class="ph ph-compass"></i><span>Slajd 0${currentIndex + 1} z 0${totalSlides} • ${activeCategory}</span>`;
+
+        // Update Button States
+        prevBtn.disabled = currentIndex === 0;
+        nextBtn.disabled = currentIndex === totalSlides - 1;
+      }
+
+      function goToNext() {
+        if (currentIndex < totalSlides - 1) {
+          updateDeck(currentIndex + 1);
+        } else if (autoplayTimer) {
+          // Loop around if autoplaying
+          updateDeck(0);
+        }
+      }
+
+      function goToPrev() {
+        if (currentIndex > 0) {
+          updateDeck(currentIndex - 1);
+        }
+      }
+
+      // Event Listeners for Controls
+      prevBtn.addEventListener('click', () => {
+        stopAutoplay();
+        goToPrev();
+      });
+
+      nextBtn.addEventListener('click', () => {
+        stopAutoplay();
+        goToNext();
+      });
+
+      dots.forEach((dot, idx) => {
+        dot.addEventListener('click', () => {
+          stopAutoplay();
+          updateDeck(idx);
+        });
+      });
+
+      // Autoplay Toggle
+      function toggleAutoplay() {
+        if (autoplayTimer) {
+          stopAutoplay();
+        } else {
+          startAutoplay();
+        }
+      }
+
+      function startAutoplay() {
+        playIcon.classList.remove('ph-play');
+        playIcon.classList.add('ph-pause');
+        playBtn.style.color = 'var(--cobalt)';
+        playBtn.style.borderColor = 'var(--cobalt-border)';
+        autoplayTimer = setInterval(goToNext, autoplayInterval);
+      }
+
+      function stopAutoplay() {
+        if (autoplayTimer) {
+          clearInterval(autoplayTimer);
+          autoplayTimer = null;
+        }
+        playIcon.classList.remove('ph-pause');
+        playIcon.classList.add('ph-play');
+        playBtn.style.color = '';
+        playBtn.style.borderColor = '';
+      }
+
+      playBtn.addEventListener('click', toggleAutoplay);
+
+      // Fullscreen Toggle
+      function toggleFullscreen() {
+        if (!document.fullscreenElement) {
+          document.documentElement.requestFullscreen().catch(() => {});
+          fsIcon.classList.remove('ph-corners-out');
+          fsIcon.classList.add('ph-corners-in');
+        } else {
+          if (document.exitFullscreen) {
+            document.exitFullscreen();
+          }
+          fsIcon.classList.remove('ph-corners-in');
+          fsIcon.classList.add('ph-corners-out');
+        }
+      }
+
+      fsBtn.addEventListener('click', toggleFullscreen);
+
+      document.addEventListener('fullscreenchange', () => {
+        if (!document.fullscreenElement) {
+          fsIcon.classList.remove('ph-corners-in');
+          fsIcon.classList.add('ph-corners-out');
+        } else {
+          fsIcon.classList.remove('ph-corners-out');
+          fsIcon.classList.add('ph-corners-in');
+        }
+      });
+
+      // Help Modal
+      function openHelp() {
+        helpModal.classList.add('open');
+      }
+
+      function closeHelp() {
+        helpModal.classList.remove('open');
+      }
+
+      helpBtn.addEventListener('click', openHelp);
+      closeHelpBtn.addEventListener('click', closeHelp);
+      helpModal.addEventListener('click', (e) => {
+        if (e.target === helpModal) closeHelp();
+      });
+
+      // Keyboard Navigation
+      window.addEventListener('keydown', (e) => {
+        // Prevent default scrolling on arrow keys and space
+        if (['ArrowRight', 'ArrowLeft', 'Space'].includes(e.code)) {
+          e.preventDefault();
+        }
+
+        if (e.code === 'ArrowRight' || e.code === 'Space') {
+          stopAutoplay();
+          goToNext();
+        } else if (e.code === 'ArrowLeft') {
+          stopAutoplay();
+          goToPrev();
+        } else if (e.key >= '1' && e.key <= '4') {
+          stopAutoplay();
+          updateDeck(parseInt(e.key, 10) - 1);
+        } else if (e.code === 'KeyF') {
+          toggleFullscreen();
+        } else if (e.code === 'KeyP') {
+          toggleAutoplay();
+        } else if (e.key === '?' || e.code === 'KeyH') {
+          if (helpModal.classList.contains('open')) {
+            closeHelp();
+          } else {
+            openHelp();
+          }
+        } else if (e.code === 'Escape') {
+          closeHelp();
+        }
+      });
+
+      // Mobile Touch Swipe Handling
+      let touchStartX = 0;
+      let touchStartY = 0;
+
+      window.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+        touchStartY = e.changedTouches[0].screenY;
+      }, { passive: true });
+
+      window.addEventListener('touchend', (e) => {
+        const touchEndX = e.changedTouches[0].screenX;
+        const touchEndY = e.changedTouches[0].screenY;
+        const diffX = touchStartX - touchEndX;
+        const diffY = touchStartY - touchEndY;
+
+        // Horizontal swipe with minimum distance of 45px and dominant X motion
+        if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 45) {
+          stopAutoplay();
+          if (diffX > 0) {
+            goToNext();
+          } else {
+            goToPrev();
+          }
+        }
+      }, { passive: true });
+
+      // Initialize Deck
+      updateDeck(0);
+    })();
+  </script>
+</body>
+</html>
